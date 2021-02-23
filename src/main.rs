@@ -1,10 +1,18 @@
-fn main() {
-    let rect: (u32, u32) = (14, 86);
+struct Rect {
+    width: u32,
+    height: u32,
+}
 
-    let area = area(rect);
+fn main() {
+    let rect = Rect {
+        width: 14,
+        height: 86,
+    };
+
+    let area = area(&rect);
     println!("area {}", area);
 }
 
-fn area(rect: (u32, u32)) -> u32 {
-    rect.0 * rect.1
+fn area(rect: &Rect) -> u32 {
+    rect.width * rect.height
 }
